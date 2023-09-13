@@ -1,8 +1,6 @@
 package org.example;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -130,7 +128,20 @@ public class Main {
 
         //Delete Pet
 
-        driver.findElement(By.xpath("//div[@class='chakra-accordion css-1ki54i']//div[3]")).click();
+//        driver.findElement(By.xpath("//div[@class='chakra-accordion css-1ki54i']//div[3]")).click();
+        try {
+            driver.findElement(By.xpath("//div[@class='chakra-accordion css-1ki54i']//div[3]")).click();
+        } catch (NoSuchElementException e) {
+            // Handle the case where the element is not found
+            System.out.println("Element not found: " + e.getMessage());
+        } catch (TimeoutException e) {
+            // Handle timeout exception
+            System.out.println("Timeout: " + e.getMessage());
+        } catch (WebDriverException e) {
+            // Handle any other WebDriver related exception
+            System.out.println("WebDriver exception: " + e.getMessage());
+        }
+
         driver.findElement(By.xpath("//div[@class='css-17ih52v']//*[name()='svg']")).click();
         driver.findElement(By.xpath("//button[@aria-label='delete']//*[name()='svg']")).click();
 
