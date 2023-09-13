@@ -110,7 +110,7 @@ public class Main {
         //Click enter to get response from AI
         WebElement submit = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='chakra-stack css-1cbppnq']//button[@type='button']//*[name()='svg']")));
         submit.click();
-       //Wait for AI response to proceed further. ttttts
+       //Wait for AI response to proceed further
 
         //Pause current thread for 10 seconds
         Thread.sleep(15000);
